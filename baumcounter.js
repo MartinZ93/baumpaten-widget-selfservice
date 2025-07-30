@@ -62,3 +62,28 @@ window.addEventListener('DOMContentLoaded', function() {
               if (from !== to) {
                   flipDigit(counter.children[i], from, to);
               }
+              current[i] = to;
+          }
+          frame++;
+          if (frame <= steps) {
+              setTimeout(step, stepTime);
+          } else {
+              let endStr = target.toString().padStart(digits, '0').split('');
+              for (let i = 0; i < digits; i++) {
+                  counter.children[i].querySelector('.bpw-digit-inner').textContent = endStr[i];
+                  current[i] = endStr[i];
+              }
+          }
+      }
+      step();
+  }
+
+  animateTo(trees, 500);
+
+  // Pulse-Effekt beim Klick
+  widget.querySelector('.bpw-rahmen').onclick = function() {
+      window.open('https://baumpaten-deutschland.de/products/deine-baumpatenschaft', '_blank');
+      this.classList.add('pulse');
+      setTimeout(() => this.classList.remove('pulse'), 360);
+  };
+});
