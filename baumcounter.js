@@ -6,12 +6,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
   widget.classList.add('bpw-' + size);
 
-  // Widget-Container bauen, jetzt mit deinem SVG-Logo!
+  // Widget-Container bauen, mit richtigem Logo-Link
   widget.innerHTML = `
     <div class="bpw-rahmen">
       <div class="bpw-content">
         <div class="bpw-gemeinsam">Gemeinsam mit</div>
-        <img src="https://martinz93.github.io/baumpaten-widget-selfservice/Design%20ohne%20Titel%20(4).svg" alt="Baumpaten Logo" class="bpw-logo" />
+        <img src="https://martinz93.github.io/baumpaten-widget-selfservice/logo.svg" alt="Baumpaten Logo" class="bpw-logo" />
         <div class="bpw-headline">Gepflanzte Bäume</div>
         <div class="bpw-counter"></div>
       </div>
