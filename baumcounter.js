@@ -6,13 +6,21 @@ window.addEventListener('DOMContentLoaded', function() {
   var headline = widget.getAttribute('data-headline') || 'Wir sind Baumpate';
   var label = widget.getAttribute('data-label') || 'Bäume bereits gepflanzt';
 
+  // Wenn logoneu.svg nicht gefunden, nimm Fallback-Logo (logo.png)
+  var logoUrl = 'logoneu.svg';
+  var fallbackLogo = 'logo.png';
+
+  function logoImgHtml() {
+    return `<img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo" onerror="this.onerror=null;this.src='${fallbackLogo}';"/>`;
+  }
+
   widget.innerHTML = `
-    <div class="bp-card">
+    <div class="bp-card" id="bp-card-main">
       <div class="bp-headline">${headline}</div>
       <div class="bp-counter-row"></div>
       <div class="bp-counter-label">${label}</div>
       <div class="bp-logo-box">
-        <img src="logoneu.svg" alt="Baumpaten Logo" class="bp-logo" />
+        ${logoImgHtml()}
       </div>
     </div>
   `;
@@ -79,4 +87,19 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 
   animateTo(trees, 500);
+
+  // Pulse-3D-Mouseover für Card & Counter
+  const card = widget.querySelector('.bp-card');
+  card.addEventListener('mouseenter', function() {
+    card.classList.add('pulse');
+  });
+  card.addEventListener('mouseleave', function() {
+    card.classList.remove('pulse');
+  });
+
+  // Klicken: Link öffnen
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function() {
+    window.open('https://baumpaten-deutschland.de/products/deine-baumpatenschaft', '_blank');
+  });
 });
