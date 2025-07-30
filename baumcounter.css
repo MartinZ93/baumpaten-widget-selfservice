@@ -6,26 +6,30 @@
   position: relative;
   margin: 0;
   padding: 0;
-  /* Hintergrundbild */
-  background: url('backgroundwald.svg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Hintergrundbild + runde Ecken wie Card */
+  background: url('backgroundwald.svg') center/cover no-repeat;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 6px 38px #0002, 0 1.5px 0 #e9792680;
 }
 
+/* Glas-Card mit ca. 60% Transparenz */
 .bp-card {
-  background: rgba(255,255,255,0.83);
+  background: rgba(255,255,255,0.60);
   backdrop-filter: blur(12px);
   border-radius: 36px;
   padding: 48px 36px 38px 36px;
-  box-shadow: 0 8px 38px #0002, 0 1.5px 0 #e9792680;
+  box-shadow: 0 4px 20px #0002, 0 1.5px 0 #e9792635;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 96vw;
-  max-width: 480px;
+  width: 92vw;
+  max-width: 500px;
   min-width: 260px;
-  margin: 30px 0;
+  margin: 38px 0;
 }
 
 .bp-headline {
@@ -70,7 +74,6 @@
   z-index: 1;
 }
 .bp-flip-digit:after {
-  /* kleine orangene Akzentlinie unten */
   content: "";
   display: block;
   position: absolute;
@@ -105,16 +108,17 @@
   z-index: 10;
   font-weight: 700;
 }
-
 @keyframes bp-flipUp {
   0%   { transform: rotateX(0deg) scaleY(1.10); opacity: 1;}
   50%  { transform: rotateX(-55deg) scaleY(0.99); opacity: 1;}
   100% { transform: rotateX(-90deg) scaleY(0.93); opacity: 0;}
 }
 
+/* Label mit mehr Abstand */
 .bp-counter-label {
   font-size: 1.18rem;
-  margin-bottom: 28px;
+  margin-top: 36px;
+  margin-bottom: 32px;
   color: #111;
   letter-spacing: 0.02em;
   font-weight: 500;
@@ -125,12 +129,12 @@
   width: 220px;
   background: transparent;
   border-radius: 20px;
-  margin-top: 16px;
+  margin-top: 10px;
   box-shadow: 0 2px 22px #0001;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0 0 0;
+  padding: 0;
 }
 .bp-logo {
   width: 100%;
@@ -138,34 +142,37 @@
   display: block;
 }
 
+/* Responsive Anpassung */
 @media (max-width: 800px) {
+  #baumpaten-widget {
+    border-radius: 18px;
+  }
   .bp-card {
-    max-width: 97vw;
+    max-width: 98vw;
     min-width: 0;
-    padding: 22px 3vw 18px 3vw;
-    border-radius: 16px;
+    padding: 18px 2vw 12px 2vw;
+    border-radius: 14px;
+    margin: 14px 0;
   }
   .bp-headline {
-    font-size: 1.19rem;
-    margin-bottom: 19px;
-    padding-bottom: 3px;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    padding-bottom: 2px;
   }
   .bp-counter-row {
     gap: 8px;
   }
   .bp-flip-digit {
-    width: 38px;
-    height: 56px;
-    font-size: 27px;
-    border-radius: 8px;
+    width: 37px;
+    height: 54px;
+    font-size: 25px;
+    border-radius: 7px;
   }
   .bp-flip, .bp-digit-inner {
-    font-size: 27px;
+    font-size: 25px;
   }
   .bp-logo-box {
-    width: 110px;
-    margin-top: 10px;
-    border-radius: 8px;
-    padding-top: 5px;
+    width: 100px;
+    border-radius: 6px;
   }
 }
