@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Baumpaten Widget</title>
+  <link rel="stylesheet" href="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.css">
+</head>
+<body>
+  <div id="baumpaten-widget" data-trees="456" data-size="large"></div>
+  <script src="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.js"></script>
+</body>
+</html>
