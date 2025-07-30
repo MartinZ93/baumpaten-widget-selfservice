@@ -1,13 +1,14 @@
-# baumpaten-widget-selfservice
+# Baumpaten Widget
 
+Mit diesem Widget kannst du ganz einfach auf deiner Website anzeigen, wie viele Bäume ihr schon gepflanzt habt!
 
-Mit diesem Widget können Sie Ihre gepflanzte Baumzahl einfach auf Ihrer Website anzeigen!
+---
 
-## Einbindung
+## **So funktioniert das Widget**
 
-Fügen Sie folgenden Code an beliebiger Stelle Ihrer Website ein:
+Füge folgenden Code an der gewünschten Stelle deiner Website ein:
 
-
+```html
 <div id="baumpaten-widget" data-trees="123" data-size="standard"></div>
 <script src="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.js"></script>
 <link rel="stylesheet" href="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.css">
