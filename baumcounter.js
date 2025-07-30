@@ -6,12 +6,11 @@ window.addEventListener('DOMContentLoaded', function() {
   var headline = widget.getAttribute('data-headline') || 'Wir sind Baumpate';
   var label = widget.getAttribute('data-label') || 'Bäume bereits gepflanzt';
 
-  // Wenn logoneu.svg nicht gefunden, nimm Fallback-Logo (logo.png)
-  var logoUrl = 'logoneu.svg';
-  var fallbackLogo = 'logo.png';
+  // Absoluter Pfad zu deinem Logo!
+  var logoUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoneu.svg';
 
   function logoImgHtml() {
-    return `<img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo" onerror="this.onerror=null;this.src='${fallbackLogo}';"/>`;
+    return `<img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo" />`;
   }
 
   widget.innerHTML = `
@@ -48,15 +47,15 @@ window.addEventListener('DOMContentLoaded', function() {
       flip.style.transform = 'rotateX(-90deg)';
       flip.style.opacity = 0;
       digitEl.querySelector('.bp-digit-inner').textContent = to;
-    }, 120);
+    }, 140);
     setTimeout(() => {
       if (flip.parentNode) flip.parentNode.removeChild(flip);
-    }, 190);
+    }, 240);
   }
 
-  function animateTo(target, duration = 500) {
+  function animateTo(target, duration = 550) {
     const startNum = parseInt(current.join(''), 10);
-    const steps = 22;
+    const steps = 23;
     let frame = 0;
     const stepTime = duration / steps;
 
@@ -86,9 +85,9 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 500);
+  animateTo(trees, 550);
 
-  // Pulse-3D-Mouseover für Card & Counter
+  // Pulse-3D-Mouseover für Card & Counter (alles klickbar)
   const card = widget.querySelector('.bp-card');
   card.addEventListener('mouseenter', function() {
     card.classList.add('pulse');
@@ -97,8 +96,7 @@ window.addEventListener('DOMContentLoaded', function() {
     card.classList.remove('pulse');
   });
 
-  // Klicken: Link öffnen
-  card.style.cursor = 'pointer';
+  // Klicken: Link öffnen (ganzes Widget)
   card.addEventListener('click', function() {
     window.open('https://baumpaten-deutschland.de/products/deine-baumpatenschaft', '_blank');
   });
