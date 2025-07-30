@@ -18,7 +18,7 @@
 
 /* Glas-Card mit ca. 60% Transparenz */
 .bp-card {
-  background: rgba(255,255,255,0.60);
+  background: rgba(255,255,255,0.40);
   backdrop-filter: blur(12px);
   border-radius: 36px;
   padding: 48px 36px 38px 36px;
