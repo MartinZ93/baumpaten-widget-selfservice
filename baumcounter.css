@@ -1,0 +1,108 @@
+#baumpaten-widget {
+    font-family: system-ui, Arial, sans-serif;
+}
+.bpw-rahmen {
+    background: #155b2f;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px #0001;
+    padding: 36px 24px 36px 24px;
+    cursor: pointer;
+    border: 4px solid #155b2f;
+}
+.bpw-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 10px 32px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bpw-gemeinsam {
+    color: #155b2f;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 14px;
+    text-align: center;
+}
+.bpw-logo {
+    width: 180px;
+    max-width: 80vw;
+    margin-bottom: 24px;
+    margin-top: 4px;
+    display: block;
+}
+.bpw-headline {
+    font-size: 2rem;
+    color: #155b2f;
+    margin: 0 0 28px 0;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+.bpw-counter {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+.bpw-flip-digit {
+    background: #155b2f;
+    border-radius: 18px;
+    width: 90px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 82px;
+    color: #ecf9f3;
+    position: relative;
+    box-shadow: 0 7px 0 #e97926, 0 16px 32px #0002;
+    overflow: hidden;
+    font-weight: 400 !important;
+    text-align: center;
+    user-select: none;
+}
+.bpw-digit-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 400 !important;
+}
+.bpw-flip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: bpw-flipUp 0.25s cubic-bezier(.4,0,.2,1);
+    background: #155b2f;
+    color: #ecf9f3;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 82px;
+    z-index: 10;
+    font-weight: 400 !important;
+}
+@keyframes bpw-flipUp {
+    0% { transform: rotateX(0deg) scaleY(1); opacity: 1; }
+    60% { transform: rotateX(-80deg) scaleY(0.92); opacity: 1; }
+    100% { transform: rotateX(-90deg) scaleY(0.90); opacity: 0; }
+}
+/* Größen-Optionen */
+.bpw-small .bpw-flip-digit { width:45px;height:65px;font-size:38px; }
+.bpw-large .bpw-flip-digit { width:120px;height:160px;font-size:110px; }
+@media (max-width: 700px) {
+    .bpw-rahmen { padding: 10px 2vw 18px 2vw; border-radius: 16px; }
+    .bpw-content { padding: 8px 2vw 18px 2vw; border-radius: 10px; }
+    .bpw-logo { width: 100px; }
+    .bpw-headline { font-size: 1.1rem; margin-bottom: 14px; }
+    .bpw-gemeinsam { font-size: 1.04rem; }
+    .bpw-flip-digit { width: 43px; height: 62px; font-size: 33px; }
+    .bpw-flip { font-size: 33px; }
+    .bpw-counter { gap: 9px; }
+}
