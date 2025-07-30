@@ -7,7 +7,7 @@ Mit diesem Widget können Sie Ihre gepflanzte Baumzahl einfach auf Ihrer Website
 
 Fügen Sie folgenden Code an beliebiger Stelle Ihrer Website ein:
 
-```html
+
 <div id="baumpaten-widget" data-trees="123" data-size="standard"></div>
-<script src="https://IHRE-DOMAIN/widget/baumcounter.js"></script>
-<link rel="stylesheet" href="https://IHRE-DOMAIN/widget/baumcounter.css">
+<script src="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.js"></script>
+<link rel="stylesheet" href="https://martinz93.github.io/baumpaten-widget-selfservice/baumcounter.css">
