@@ -2,12 +2,10 @@ window.addEventListener('DOMContentLoaded', function() {
   var widget = document.getElementById('baumpaten-widget');
   if (!widget) return;
 
-  // Hole Werte
   var trees = parseInt(widget.getAttribute('data-trees')) || 0;
   var headline = widget.getAttribute('data-headline') || 'Wir sind Baumpate';
   var label = widget.getAttribute('data-label') || 'Bäume bereits gepflanzt';
 
-  // Hauptstruktur erzeugen
   widget.innerHTML = `
     <div class="bp-card">
       <div class="bp-headline">${headline}</div>
@@ -23,7 +21,6 @@ window.addEventListener('DOMContentLoaded', function() {
   var digits = trees.toString().length;
   let current = Array(digits).fill(0);
 
-  // Digits erzeugen
   counter.innerHTML = '';
   for (let i = 0; i < digits; i++) {
     const digit = document.createElement('div');
@@ -32,7 +29,6 @@ window.addEventListener('DOMContentLoaded', function() {
     counter.appendChild(digit);
   }
 
-  // Flip-Animation für jede Ziffer
   function flipDigit(digitEl, from, to) {
     if (from === to) return;
     const flip = document.createElement('span');
@@ -50,7 +46,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }, 190);
   }
 
-  // Counter animieren
   function animateTo(target, duration = 500) {
     const startNum = parseInt(current.join(''), 10);
     const steps = 22;
@@ -84,11 +79,4 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 
   animateTo(trees, 500);
-
-  // Card klickbar machen (optional)
-  // widget.querySelector('.bp-card').onclick = function() {
-  //   window.open('https://baumpaten-deutschland.de/products/deine-baumpatenschaft', '_blank');
-  //   this.classList.add('pulse');
-  //   setTimeout(() => this.classList.remove('pulse'), 360);
-  // };
 });
