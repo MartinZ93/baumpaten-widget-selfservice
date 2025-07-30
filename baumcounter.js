@@ -6,7 +6,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
   widget.classList.add('bpw-' + size);
 
-  // Widget-Container bauen, mit richtigem Logo-Link
   widget.innerHTML = `
     <div class="bpw-rahmen">
       <div class="bpw-content">
@@ -18,12 +17,10 @@ window.addEventListener('DOMContentLoaded', function() {
     </div>
   `;
 
-  // Flip Counter inside .bpw-counter
   var counter = widget.querySelector('.bpw-counter');
   var digits = trees.toString().length;
   let current = Array(digits).fill(0);
 
-  // Build digits
   counter.innerHTML = '';
   for (let i = 0; i < digits; i++) {
       const digit = document.createElement('div');
@@ -32,7 +29,6 @@ window.addEventListener('DOMContentLoaded', function() {
       counter.appendChild(digit);
   }
 
-  // Flip-Animation
   function flipDigit(digitEl, from, to) {
       if (from === to) return;
       const flip = document.createElement('span');
@@ -66,26 +62,3 @@ window.addEventListener('DOMContentLoaded', function() {
               if (from !== to) {
                   flipDigit(counter.children[i], from, to);
               }
-              current[i] = to;
-          }
-          frame++;
-          if (frame <= steps) {
-              setTimeout(step, stepTime);
-          } else {
-              let endStr = target.toString().padStart(digits, '0').split('');
-              for (let i = 0; i < digits; i++) {
-                  counter.children[i].querySelector('.bpw-digit-inner').textContent = endStr[i];
-                  current[i] = endStr[i];
-              }
-          }
-      }
-      step();
-  }
-
-  animateTo(trees, 500);
-
-  // Optional: Ganzes Widget klickbar machen
-  widget.querySelector('.bpw-rahmen').onclick = function() {
-      window.open('https://baumpaten-deutschland.de/products/deine-baumpatenschaft', '_blank');
-  }
-});
