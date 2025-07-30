@@ -53,9 +53,9 @@ window.addEventListener('DOMContentLoaded', function() {
     }, 240);
   }
 
-  function animateTo(target, duration = 550) {
+  function animateTo(target, duration = 530) {
     const startNum = parseInt(current.join(''), 10);
-    const steps = 23;
+    const steps = 22;
     let frame = 0;
     const stepTime = duration / steps;
 
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 550);
+  animateTo(trees, 530);
 
   // Pulse-3D-Mouseover für Card & Counter (alles klickbar)
   const card = widget.querySelector('.bp-card');
