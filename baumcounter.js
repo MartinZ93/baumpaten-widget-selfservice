@@ -47,15 +47,15 @@ window.addEventListener('DOMContentLoaded', function() {
       flip.style.transform = 'rotateX(-90deg)';
       flip.style.opacity = 0;
       digitEl.querySelector('.bp-digit-inner').textContent = to;
-    }, 140);
+    }, 110);
     setTimeout(() => {
       if (flip.parentNode) flip.parentNode.removeChild(flip);
-    }, 240);
+    }, 170);
   }
 
-  function animateTo(target, duration = 530) {
+  function animateTo(target, duration = 370) {
     const startNum = parseInt(current.join(''), 10);
-    const steps = 22;
+    const steps = 17;
     let frame = 0;
     const stepTime = duration / steps;
 
@@ -85,9 +85,9 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 530);
+  animateTo(trees, 370);
 
-  // Pulse-3D-Mouseover für Card & Counter (alles klickbar)
+  // Mouseover Pulse
   const card = widget.querySelector('.bp-card');
   card.addEventListener('mouseenter', function() {
     card.classList.add('pulse');
