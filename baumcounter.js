@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   animateTo(trees, 210);
 
-  // LOGO-REGEN statt Emoji-Regen
+  // --- Regen: Logo + Baum-Emojis ---
   const card = widget.querySelector('.bp-card');
   const emojiRain = document.getElementById(emojiRainId);
 
@@ -94,29 +94,39 @@ window.addEventListener('DOMContentLoaded', function() {
   function startEmojiRain() {
     stopEmojiRain();
     emojiRainTimer = setInterval(() => {
-      let logo = document.createElement('img');
-      logo.src = logoRegenUrl;
-      logo.className = "bp-logo-rain";
-      logo.style.position = 'absolute';
-      logo.style.left = (Math.random() * 88 + 4) + '%';
-      logo.style.top = '-40px';
-      let size = Math.random() * 12 + 28; // 28–40px
-      logo.style.width = size + 'px';
-      logo.style.height = size + 'px';
-      logo.style.opacity = Math.random() * 0.4 + 0.55;
-      logo.style.transition = 'top 1.25s linear, opacity 0.9s';
-      logo.style.pointerEvents = 'none';
-      emojiRain.appendChild(logo);
-      runningEmojis.push(logo);
+      let rainElem;
+      // 60% Chance Regenlogo, 40% Emoji
+      if (Math.random() < 0.6) {
+        rainElem = document.createElement('img');
+        rainElem.src = logoRegenUrl;
+        rainElem.className = "bp-logo-rain";
+        let size = Math.random() * 12 + 28;
+        rainElem.style.width = size + 'px';
+        rainElem.style.height = size + 'px';
+      } else {
+        rainElem = document.createElement('span');
+        rainElem.className = "bp-logo-rain";
+        rainElem.textContent = Math.random() > 0.5 ? '🌳' : '🌲';
+        let size = Math.random() * 12 + 28;
+        rainElem.style.fontSize = size + 'px';
+      }
+      rainElem.style.position = 'absolute';
+      rainElem.style.left = (Math.random() * 88 + 4) + '%';
+      rainElem.style.top = '-40px';
+      rainElem.style.opacity = Math.random() * 0.4 + 0.55;
+      rainElem.style.transition = 'top 1.25s linear, opacity 0.9s';
+      rainElem.style.pointerEvents = 'none';
+      emojiRain.appendChild(rainElem);
+      runningEmojis.push(rainElem);
 
       setTimeout(() => {
-        logo.style.top = (Math.random() * 50 + 50) + '%';
-        logo.style.opacity = 0.18 + Math.random() * 0.15;
+        rainElem.style.top = (Math.random() * 50 + 50) + '%';
+        rainElem.style.opacity = 0.18 + Math.random() * 0.15;
       }, 30);
 
       setTimeout(() => {
-        if (logo.parentNode) logo.parentNode.removeChild(logo);
-        runningEmojis = runningEmojis.filter(e => e !== logo);
+        if (rainElem.parentNode) rainElem.parentNode.removeChild(rainElem);
+        runningEmojis = runningEmojis.filter(e => e !== rainElem);
       }, 1300);
     }, 100);
   }
