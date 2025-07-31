@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 210);
+  animateTo(trees, 460);
 
   // LOGO-REGEN statt Emoji-Regen
   const card = widget.querySelector('.bp-card');
