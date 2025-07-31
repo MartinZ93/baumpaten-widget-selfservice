@@ -47,15 +47,15 @@ window.addEventListener('DOMContentLoaded', function() {
       flip.style.transform = 'rotateX(-90deg)';
       flip.style.opacity = 0;
       digitEl.querySelector('.bp-digit-inner').textContent = to;
-    }, 110);
+    }, 85);
     setTimeout(() => {
       if (flip.parentNode) flip.parentNode.removeChild(flip);
-    }, 170);
+    }, 130);
   }
 
-  function animateTo(target, duration = 370) {
+  function animateTo(target, duration = 210) {
     const startNum = parseInt(current.join(''), 10);
-    const steps = 17;
+    const steps = 10;
     let frame = 0;
     const stepTime = duration / steps;
 
@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 370);
+  animateTo(trees, 210);
 
   // Mouseover Pulse
   const card = widget.querySelector('.bp-card');
