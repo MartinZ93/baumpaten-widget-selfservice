@@ -13,14 +13,17 @@ window.addEventListener('DOMContentLoaded', function() {
     return `<img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo" />`;
   }
 
+  // Emoji-Regen-Container (kommt ganz oben)
+  let emojiRainId = 'emoji-rain-' + Math.floor(Math.random() * 100000);
   widget.innerHTML = `
+    <div class="bp-emoji-rain" id="${emojiRainId}"></div>
     <div class="bp-card" id="bp-card-main">
-      <div class="bp-headline">${headline}</div>
-      <div class="bp-counter-row"></div>
-      <div class="bp-counter-label">${label}</div>
       <div class="bp-logo-box">
         ${logoImgHtml()}
       </div>
+      <div class="bp-headline">${headline}</div>
+      <div class="bp-counter-row"></div>
+      <div class="bp-counter-label">${label}</div>
     </div>
   `;
 
@@ -87,13 +90,52 @@ window.addEventListener('DOMContentLoaded', function() {
 
   animateTo(trees, 210);
 
-  // Mouseover Pulse
+  // Mouseover Pulse & Emoji Regen
   const card = widget.querySelector('.bp-card');
+  const emojiRain = document.getElementById(emojiRainId);
+
+  let emojiRainTimer = null;
+  let runningEmojis = [];
+
+  function startEmojiRain() {
+    stopEmojiRain();
+    emojiRainTimer = setInterval(() => {
+      let emoji = document.createElement('span');
+      emoji.textContent = Math.random() < 0.15 ? '🌲' : '🌳';
+      emoji.style.position = 'absolute';
+      emoji.style.left = (Math.random() * 90 + 2) + '%';
+      emoji.style.top = '-40px';
+      emoji.style.fontSize = (Math.random() * 18 + 24) + 'px';
+      emoji.style.opacity = Math.random() * 0.4 + 0.6;
+      emoji.style.transition = 'top 1.2s linear, opacity 0.7s';
+      emoji.style.pointerEvents = 'none';
+      emojiRain.appendChild(emoji);
+      runningEmojis.push(emoji);
+
+      setTimeout(() => {
+        emoji.style.top = (Math.random() * 50 + 50) + '%';
+        emoji.style.opacity = 0.2 + Math.random() * 0.15;
+      }, 30);
+
+      setTimeout(() => {
+        if (emoji.parentNode) emoji.parentNode.removeChild(emoji);
+        runningEmojis = runningEmojis.filter(e => e !== emoji);
+      }, 1300);
+    }, 110);
+  }
+  function stopEmojiRain() {
+    if (emojiRainTimer) clearInterval(emojiRainTimer);
+    runningEmojis.forEach(e => e.remove());
+    runningEmojis = [];
+  }
+
   card.addEventListener('mouseenter', function() {
     card.classList.add('pulse');
+    startEmojiRain();
   });
   card.addEventListener('mouseleave', function() {
     card.classList.remove('pulse');
+    stopEmojiRain();
   });
 
   // Klicken: Link öffnen (ganzes Widget)
