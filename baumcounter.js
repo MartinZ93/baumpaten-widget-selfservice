@@ -6,20 +6,17 @@ window.addEventListener('DOMContentLoaded', function() {
   var headline = widget.getAttribute('data-headline') || 'Wir sind Baumpate';
   var label = widget.getAttribute('data-label') || 'Bäume bereits gepflanzt';
 
-  // Absoluter Pfad zu deinem Logo!
-  var logoUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoneu.svg';
+  // Fixes großes Logo oben und Regenlogo
+  var logoUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoneuv2.svg';
+  var logoRegenUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoregen.svg';
 
-  function logoImgHtml() {
-    return `<img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo" />`;
-  }
-
-  // Emoji-Regen-Container (kommt ganz oben)
   let emojiRainId = 'emoji-rain-' + Math.floor(Math.random() * 100000);
+
   widget.innerHTML = `
     <div class="bp-emoji-rain" id="${emojiRainId}"></div>
     <div class="bp-card" id="bp-card-main">
-      <div class="bp-logo-box">
-        ${logoImgHtml()}
+      <div class="bp-logo-top">
+        <img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo-main" />
       </div>
       <div class="bp-headline">${headline}</div>
       <div class="bp-counter-row"></div>
@@ -90,7 +87,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   animateTo(trees, 210);
 
-  // Mouseover Pulse & Emoji Regen
+  // LOGO-REGEN statt Emoji-Regen
   const card = widget.querySelector('.bp-card');
   const emojiRain = document.getElementById(emojiRainId);
 
@@ -100,28 +97,31 @@ window.addEventListener('DOMContentLoaded', function() {
   function startEmojiRain() {
     stopEmojiRain();
     emojiRainTimer = setInterval(() => {
-      let emoji = document.createElement('span');
-      emoji.textContent = Math.random() < 0.15 ? '🌲' : '🌳';
-      emoji.style.position = 'absolute';
-      emoji.style.left = (Math.random() * 90 + 2) + '%';
-      emoji.style.top = '-40px';
-      emoji.style.fontSize = (Math.random() * 18 + 24) + 'px';
-      emoji.style.opacity = Math.random() * 0.4 + 0.6;
-      emoji.style.transition = 'top 1.2s linear, opacity 0.7s';
-      emoji.style.pointerEvents = 'none';
-      emojiRain.appendChild(emoji);
-      runningEmojis.push(emoji);
+      let logo = document.createElement('img');
+      logo.src = logoRegenUrl;
+      logo.className = "bp-logo-rain";
+      logo.style.position = 'absolute';
+      logo.style.left = (Math.random() * 88 + 4) + '%';
+      logo.style.top = '-40px';
+      let size = Math.random() * 12 + 28; // 28–40px
+      logo.style.width = size + 'px';
+      logo.style.height = size + 'px';
+      logo.style.opacity = Math.random() * 0.4 + 0.55;
+      logo.style.transition = 'top 1.25s linear, opacity 0.9s';
+      logo.style.pointerEvents = 'none';
+      emojiRain.appendChild(logo);
+      runningEmojis.push(logo);
 
       setTimeout(() => {
-        emoji.style.top = (Math.random() * 50 + 50) + '%';
-        emoji.style.opacity = 0.2 + Math.random() * 0.15;
+        logo.style.top = (Math.random() * 50 + 50) + '%';
+        logo.style.opacity = 0.18 + Math.random() * 0.15;
       }, 30);
 
       setTimeout(() => {
-        if (emoji.parentNode) emoji.parentNode.removeChild(emoji);
-        runningEmojis = runningEmojis.filter(e => e !== emoji);
+        if (logo.parentNode) logo.parentNode.removeChild(logo);
+        runningEmojis = runningEmojis.filter(e => e !== logo);
       }, 1300);
-    }, 110);
+    }, 100);
   }
   function stopEmojiRain() {
     if (emojiRainTimer) clearInterval(emojiRainTimer);
