@@ -2,34 +2,42 @@
 
 #baumpaten-widget {
   width: 100%;
-  max-width: 350px;
-  margin: 40px auto;
+  max-width: 370px;
+  margin: 44px auto;
   background: linear-gradient(115deg, #ecf5f6 0 40%, #fafdfe 100%), url('backgroundwald.svg') center center no-repeat;
   background-size: cover;
-  border-radius: 22px;
+  border-radius: 24px;
   box-shadow: 0 6px 24px #a0b5ca17, 0 1px 0 #d1e7e633;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
   position: relative;
 }
 
+.bp-emoji-rain {
+  pointer-events: none;
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  z-index: 11;
+  overflow: visible;
+}
+
 .bp-card {
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(16px) saturate(140%);
+  background: rgba(255,255,255,0.58);
+  backdrop-filter: blur(20px) saturate(160%);
   border-radius: 15px;
-  box-shadow: 0 3px 20px 0 #b4d2e355, 0 0.5px 0 #a5b4fc33;
+  box-shadow: 0 3px 22px 0 #b4d2e355, 0 0.5px 0 #a5b4fc33;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 93%;
-  margin: 24px 0;
-  padding: 20px 2vw 15px 2vw;
+  width: 97%;
+  margin: 27px 0;
+  padding: 32px 2vw 16px 2vw;
   position: relative;
   transition: box-shadow .18s, transform .14s;
   cursor: pointer;
+  z-index: 2;
 }
 
 .bp-card:hover, .bp-card.pulse {
@@ -44,17 +52,34 @@
   100% { filter: brightness(1);}
 }
 
+.bp-logo-box {
+  width: 108px;
+  margin-top: 7px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bp-logo {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .bp-headline {
   font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 1.09rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: #1a232d;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 19px;
   letter-spacing: 0.01em;
   background: none;
   line-height: 1.18;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   border-bottom: 2px solid #89f0e6;
   width: fit-content;
   margin-left: auto;
@@ -65,23 +90,23 @@
 
 .bp-counter-row {
   display: flex;
-  gap: 6px;
-  margin-bottom: 13px;
+  gap: 11px;
+  margin-bottom: 19px;
   justify-content: center;
   align-items: end;
-  margin-top: 13px;
+  margin-top: 17px;
   width: 100%;
 }
 
 .bp-flip-digit {
-  background: rgba(246,250,250,0.95);
-  border-radius: 7px;
-  width: 39px;
-  height: 53px;
+  background: rgba(246,250,250,0.98);
+  border-radius: 10px;
+  width: 54px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 37px;
   color: #1a232d;
   box-shadow: 0 1px 0 #a5b4fc40, 0 4px 11px #90b4e008;
   font-weight: 700;
@@ -89,21 +114,21 @@
   position: relative;
   text-align: center;
   user-select: none;
-  border: 1px solid #edf7ffcc;
+  border: 1.2px solid #edf7ffcc;
   transition: box-shadow 0.12s, filter 0.12s;
   z-index: 1;
   overflow: hidden;
 }
 .bp-card:hover .bp-flip-digit {
-  filter: brightness(1.05) drop-shadow(0 1px 5px #89f0e626);
+  filter: brightness(1.06) drop-shadow(0 1px 5px #89f0e626);
   box-shadow: 0 5px 0 #a5b4fc40, 0 8px 18px #a5b4fc14;
 }
 .bp-flip-digit:after {
   content: "";
   display: block;
   position: absolute;
-  left: 30%;
-  right: 30%;
+  left: 31%;
+  right: 31%;
   bottom: 4px;
   height: 2px;
   border-radius: 1.5px;
@@ -127,11 +152,11 @@
   animation: bp-flipUp 0.18s cubic-bezier(.7,1.3,.5,1.2);
   background: rgba(246,250,250,0.98);
   color: #1a232d;
-  border-radius: 7px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 37px;
   z-index: 10;
   font-weight: 700;
   font-family: 'Assistant', system-ui, Arial, sans-serif;
@@ -144,9 +169,9 @@
 
 .bp-counter-label {
   font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 0.99rem;
-  margin-top: 19px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-top: 14px;
+  margin-bottom: 4px;
   color: #334050;
   letter-spacing: 0.01em;
   font-weight: 600;
@@ -154,32 +179,12 @@
   text-shadow: 0 2px 11px #fafdff9e;
 }
 
-.bp-logo-box {
-  width: 41px;
-  margin-top: 9px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-.bp-logo {
-  width: 100%;
-  display: block;
-  object-fit: contain;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
 @media (max-width: 400px) {
   #baumpaten-widget { max-width: 99vw; border-radius: 9px;}
   .bp-card { padding: 4vw 1vw 4vw 1vw; border-radius: 7px; }
-  .bp-headline { font-size: 0.87rem; margin-bottom: 7px; }
+  .bp-logo-box { width: 45px; }
+  .bp-headline { font-size: 0.9rem; margin-bottom: 7px; }
   .bp-counter-label { font-size: .74rem; margin-top: 6px;}
-  .bp-flip-digit, .bp-flip { width: 20px; height: 23px; font-size: 9px; border-radius: 3px; }
+  .bp-flip-digit, .bp-flip { width: 27px; height: 36px; font-size: 15px; border-radius: 4px; }
   .bp-counter-row { gap: 3px;}
-  .bp-logo-box { width: 26px; margin-top: 5px;}
 }
