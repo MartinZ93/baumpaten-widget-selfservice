@@ -2,7 +2,7 @@
 
 #baumpaten-widget {
   width: 100%;
-  max-width: 370px;
+  max-width: 390px;
   margin: 44px auto;
   background: linear-gradient(115deg, #ecf5f6 0 40%, #fafdfe 100%), url('backgroundwald.svg') center center no-repeat;
   background-size: cover;
@@ -23,20 +23,6 @@
   overflow: visible;
 }
 
-.bp-logo-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 17px;
-}
-.bp-logo-main {
-  width: 112px;
-  max-width: 98%;
-  height: auto;
-  display: block;
-}
-
 .bp-card {
   background: rgba(255,255,255,0.58);
   backdrop-filter: blur(20px) saturate(160%);
@@ -47,11 +33,58 @@
   align-items: center;
   width: 97%;
   margin: 27px 0;
-  padding: 17px 2vw 16px 2vw;
+  padding: 26px 2vw 22px 2vw;
   position: relative;
   transition: box-shadow .18s, transform .14s;
   cursor: pointer;
   z-index: 2;
+}
+
+.bp-superheadline {
+  font-family: 'Assistant', system-ui, Arial, sans-serif;
+  font-size: 1.41rem;
+  font-weight: 800;
+  color: #164424;
+  text-align: center;
+  margin-bottom: 5px;
+  letter-spacing: 0.01em;
+  background: none;
+  line-height: 1.1;
+}
+
+.bp-subheadline {
+  font-family: 'Assistant', system-ui, Arial, sans-serif;
+  font-size: 1.01rem;
+  color: #232e25;
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.22;
+  font-weight: 500;
+}
+
+.bp-subbottom {
+  font-family: 'Assistant', system-ui, Arial, sans-serif;
+  font-size: 1.01rem;
+  color: #232e25;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 9px;
+  line-height: 1.22;
+  font-weight: 500;
+}
+
+.bp-logo-bottom {
+  width: 95px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bp-logo-main {
+  width: 100%;
+  max-width: 98%;
+  height: auto;
+  display: block;
 }
 
 .bp-card:hover, .bp-card.pulse {
@@ -66,37 +99,18 @@
   100% { filter: brightness(1);}
 }
 
-.bp-headline {
-  font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 1.22rem;
-  font-weight: 700;
-  color: #1a232d;
-  text-align: center;
-  margin-bottom: 19px;
-  letter-spacing: 0.01em;
-  background: none;
-  line-height: 1.18;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #89f0e6;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  transition: border-color .25s;
-}
-.bp-card:hover .bp-headline { border-color: #a5b4fc; }
-
 .bp-counter-row {
   display: flex;
   gap: 11px;
-  margin-bottom: 19px;
+  margin-bottom: 0;
   justify-content: center;
   align-items: end;
-  margin-top: 17px;
+  margin-top: 4px;
   width: 100%;
 }
 
 .bp-flip-digit {
-  background: rgba(246,250,250,0.98);
+  background: #ecf9f3 !important;
   border-radius: 10px;
   width: 54px;
   height: 70px;
@@ -104,14 +118,14 @@
   align-items: center;
   justify-content: center;
   font-size: 37px;
-  color: #1a232d;
+  color: #164424;
   box-shadow: 0 1px 0 #a5b4fc40, 0 4px 11px #90b4e008;
   font-weight: 700;
   font-family: 'Assistant', system-ui, Arial, sans-serif;
   position: relative;
   text-align: center;
   user-select: none;
-  border: 1.2px solid #edf7ffcc;
+  border: 1.2px solid #b2e9d8;
   transition: box-shadow 0.12s, filter 0.12s;
   z-index: 1;
   overflow: hidden;
@@ -130,12 +144,12 @@
   height: 2px;
   border-radius: 1.5px;
   background: #a5b4fc;
-  opacity: 0.34;
+  opacity: 0.18;
 }
 .bp-digit-inner {
   font-size: inherit;
   font-weight: inherit;
-  color: #1a232d;
+  color: #164424;
   z-index: 2;
   letter-spacing: 0.04em;
   text-shadow: 0 2px 8px #b6f1ff12;
@@ -147,8 +161,8 @@
   left: 0;
   top: 0;
   animation: bp-flipUp 0.18s cubic-bezier(.7,1.3,.5,1.2);
-  background: rgba(246,250,250,0.98);
-  color: #1a232d;
+  background: #ecf9f3 !important;
+  color: #164424;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -164,19 +178,6 @@
   100% { transform: rotateX(-90deg) scaleY(0.93); opacity: 0;}
 }
 
-.bp-counter-label {
-  font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 1rem;
-  margin-top: 14px;
-  margin-bottom: 4px;
-  color: #334050;
-  letter-spacing: 0.01em;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 2px 11px #fafdff9e;
-}
-
-/* Mini-Logo Regen */
 .bp-logo-rain {
   width: 32px !important;
   height: 32px !important;
