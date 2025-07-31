@@ -2,13 +2,12 @@
 
 #baumpaten-widget {
   width: 100%;
-  max-width: 480px;
-  margin: 48px auto;
-  box-sizing: border-box;
+  max-width: 350px;
+  margin: 40px auto;
   background: linear-gradient(115deg, #ecf5f6 0 40%, #fafdfe 100%), url('backgroundwald.svg') center center no-repeat;
   background-size: cover;
-  border-radius: 28px;
-  box-shadow: 0 8px 36px #a0b5ca17, 0 1.5px 0 #d1e7e677;
+  border-radius: 22px;
+  box-shadow: 0 6px 24px #a0b5ca17, 0 1px 0 #d1e7e633;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -19,97 +18,97 @@
 
 .bp-card {
   background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(21px) saturate(165%);
-  border-radius: 20px;
-  box-shadow: 0 3px 38px 0 #b4d2e355, 0 0.5px 0 #a5b4fc44;
+  backdrop-filter: blur(16px) saturate(140%);
+  border-radius: 15px;
+  box-shadow: 0 3px 20px 0 #b4d2e355, 0 0.5px 0 #a5b4fc33;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 92%;
-  margin: 32px 0;
-  padding: 36px 2vw 24px 2vw;
+  width: 93%;
+  margin: 24px 0;
+  padding: 20px 2vw 15px 2vw;
   position: relative;
-  transition: box-shadow .23s, transform .19s;
+  transition: box-shadow .18s, transform .14s;
   cursor: pointer;
 }
 
 .bp-card:hover, .bp-card.pulse {
-  box-shadow: 0 24px 84px #b4d2e389, 0 0 0 8px #a5b4fc22;
-  transform: scale(1.022) perspective(650px) rotateX(2.2deg);
-  animation: bp-pulse 0.49s cubic-bezier(.77,0,.18,1.15);
+  box-shadow: 0 18px 52px #b4d2e375, 0 0 0 7px #a5b4fc18;
+  transform: scale(1.016) perspective(570px) rotateX(1.7deg);
+  animation: bp-pulse 0.36s cubic-bezier(.77,0,.18,1.15);
 }
 @keyframes bp-pulse {
   0%   { filter: brightness(1);}
-  38%  { filter: brightness(1.07) drop-shadow(0 0 10px #a5b4fc77);}
-  65%  { filter: brightness(1.03);}
+  38%  { filter: brightness(1.06) drop-shadow(0 0 7px #a5b4fc77);}
+  65%  { filter: brightness(1.02);}
   100% { filter: brightness(1);}
 }
 
 .bp-headline {
   font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 1.57rem;
+  font-size: 1.09rem;
   font-weight: 700;
   color: #1a232d;
   text-align: center;
-  margin-bottom: 29px;
+  margin-bottom: 16px;
   letter-spacing: 0.01em;
   background: none;
   line-height: 1.18;
-  padding-bottom: 5px;
-  border-bottom: 2.5px solid #89f0e6;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #89f0e6;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  transition: border-color .33s;
+  transition: border-color .25s;
 }
 .bp-card:hover .bp-headline { border-color: #a5b4fc; }
 
 .bp-counter-row {
   display: flex;
-  gap: 13px;
-  margin-bottom: 22px;
+  gap: 6px;
+  margin-bottom: 13px;
   justify-content: center;
   align-items: end;
-  margin-top: 23px;
+  margin-top: 13px;
   width: 100%;
 }
 
 .bp-flip-digit {
-  background: rgba(246,250,250,0.93);
-  border-radius: 15px;
-  width: 62px;
-  height: 83px;
+  background: rgba(246,250,250,0.95);
+  border-radius: 7px;
+  width: 39px;
+  height: 53px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 28px;
   color: #1a232d;
-  box-shadow: 0 2px 0 #a5b4fc60, 0 7px 19px #90b4e00a;
+  box-shadow: 0 1px 0 #a5b4fc40, 0 4px 11px #90b4e008;
   font-weight: 700;
   font-family: 'Assistant', system-ui, Arial, sans-serif;
   position: relative;
   text-align: center;
   user-select: none;
-  border: 1.2px solid #edf7ffda;
-  transition: box-shadow 0.18s, filter 0.14s;
+  border: 1px solid #edf7ffcc;
+  transition: box-shadow 0.12s, filter 0.12s;
   z-index: 1;
   overflow: hidden;
 }
 .bp-card:hover .bp-flip-digit {
-  filter: brightness(1.08) drop-shadow(0 1px 9px #89f0e633);
-  box-shadow: 0 8px 0 #a5b4fc60, 0 14px 38px #a5b4fc1e;
+  filter: brightness(1.05) drop-shadow(0 1px 5px #89f0e626);
+  box-shadow: 0 5px 0 #a5b4fc40, 0 8px 18px #a5b4fc14;
 }
 .bp-flip-digit:after {
   content: "";
   display: block;
   position: absolute;
-  left: 28%;
-  right: 28%;
-  bottom: 9px;
-  height: 3px;
-  border-radius: 2px;
+  left: 30%;
+  right: 30%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 1.5px;
   background: #a5b4fc;
-  opacity: 0.45;
+  opacity: 0.34;
 }
 .bp-digit-inner {
   font-size: inherit;
@@ -125,29 +124,29 @@
   height: 100%;
   left: 0;
   top: 0;
-  animation: bp-flipUp 0.25s cubic-bezier(.7,1.3,.5,1.2);
-  background: rgba(246,250,250,0.96);
+  animation: bp-flipUp 0.18s cubic-bezier(.7,1.3,.5,1.2);
+  background: rgba(246,250,250,0.98);
   color: #1a232d;
-  border-radius: 15px;
+  border-radius: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 42px;
+  font-size: 28px;
   z-index: 10;
   font-weight: 700;
   font-family: 'Assistant', system-ui, Arial, sans-serif;
 }
 @keyframes bp-flipUp {
-  0%   { transform: rotateX(0deg) scaleY(1.06); opacity: 1;}
+  0%   { transform: rotateX(0deg) scaleY(1.04); opacity: 1;}
   48%  { transform: rotateX(-54deg) scaleY(0.99); opacity: 1;}
   100% { transform: rotateX(-90deg) scaleY(0.93); opacity: 0;}
 }
 
 .bp-counter-label {
   font-family: 'Assistant', system-ui, Arial, sans-serif;
-  font-size: 1.1rem;
-  margin-top: 32px;
-  margin-bottom: 19px;
+  font-size: 0.99rem;
+  margin-top: 19px;
+  margin-bottom: 10px;
   color: #334050;
   letter-spacing: 0.01em;
   font-weight: 600;
@@ -156,8 +155,8 @@
 }
 
 .bp-logo-box {
-  width: 118px;
-  margin-top: 21px;
+  width: 41px;
+  margin-top: 9px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,12 +174,12 @@
   border-radius: 0;
 }
 
-@media (max-width: 600px) {
-  #baumpaten-widget { max-width: 97vw; border-radius: 15px;}
-  .bp-card { padding: 6vw 2vw 7vw 2vw; border-radius: 12px; }
-  .bp-headline { font-size: 1.04rem; margin-bottom: 9px; }
-  .bp-counter-label { font-size: .87rem; margin-top: 13px;}
-  .bp-flip-digit, .bp-flip { width: 29px; height: 39px; font-size: 15px; border-radius: 7px; }
-  .bp-counter-row { gap: 6px;}
-  .bp-logo-box { width: 51px; margin-top: 8px;}
+@media (max-width: 400px) {
+  #baumpaten-widget { max-width: 99vw; border-radius: 9px;}
+  .bp-card { padding: 4vw 1vw 4vw 1vw; border-radius: 7px; }
+  .bp-headline { font-size: 0.87rem; margin-bottom: 7px; }
+  .bp-counter-label { font-size: .74rem; margin-top: 6px;}
+  .bp-flip-digit, .bp-flip { width: 20px; height: 23px; font-size: 9px; border-radius: 3px; }
+  .bp-counter-row { gap: 3px;}
+  .bp-logo-box { width: 26px; margin-top: 5px;}
 }
