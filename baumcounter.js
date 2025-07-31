@@ -3,10 +3,6 @@ window.addEventListener('DOMContentLoaded', function() {
   if (!widget) return;
 
   var trees = parseInt(widget.getAttribute('data-trees')) || 0;
-  var headline = widget.getAttribute('data-headline') || 'Wir sind Baumpate';
-  var label = widget.getAttribute('data-label') || 'Bäume bereits gepflanzt';
-
-  // Fixes großes Logo oben und Regenlogo
   var logoUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoneuv2.svg';
   var logoRegenUrl = 'https://martinz93.github.io/baumpaten-widget-selfservice/logoregen.svg';
 
@@ -15,12 +11,13 @@ window.addEventListener('DOMContentLoaded', function() {
   widget.innerHTML = `
     <div class="bp-emoji-rain" id="${emojiRainId}"></div>
     <div class="bp-card" id="bp-card-main">
-      <div class="bp-logo-top">
+      <div class="bp-superheadline">Wir sind Baumpaten!</div>
+      <div class="bp-subheadline">In Zusammenarbeit mit den Baumpaten Deutschland® haben wir bereits</div>
+      <div class="bp-counter-row"></div>
+      <div class="bp-subbottom">Bäume gepflanzt – regional, nachhaltig, transparent.</div>
+      <div class="bp-logo-bottom">
         <img src="${logoUrl}" alt="Baumpaten Logo" class="bp-logo-main" />
       </div>
-      <div class="bp-headline">${headline}</div>
-      <div class="bp-counter-row"></div>
-      <div class="bp-counter-label">${label}</div>
     </div>
   `;
 
@@ -85,7 +82,7 @@ window.addEventListener('DOMContentLoaded', function() {
     step();
   }
 
-  animateTo(trees, 460);
+  animateTo(trees, 210);
 
   // LOGO-REGEN statt Emoji-Regen
   const card = widget.querySelector('.bp-card');
